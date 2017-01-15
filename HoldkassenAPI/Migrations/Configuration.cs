@@ -5,14 +5,14 @@ namespace HoldkassenAPI.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HoldkassenAPI.DAL.HoldkassenDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DAL.HoldkassenDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(HoldkassenAPI.DAL.HoldkassenDbContext context)
+        protected override void Seed(DAL.HoldkassenDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

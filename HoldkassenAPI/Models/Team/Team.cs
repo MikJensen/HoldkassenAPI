@@ -9,14 +9,13 @@ namespace HoldkassenAPI.Models.Team
 {
     public class Team
     {
-        [Key, StringLength(36, MinimumLength = 36)]
-        public string Id { get; set; }
+        public string Id { get; private set; }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public string TeamCode { get; set; }
+        public string TeamCode { get; private set; }
 
-        public ICollection<ApplicationUser> Users { get; set; }
+        public ICollection<ApplicationUser> Users { get; private set; } = new List<ApplicationUser>();
 
         public static Team Create(string name)
         {
