@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using HoldkassenAPI.Models.Account;
+using HoldkassenAPI.Models.Account.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HoldkassenAPI.Models.Account
+namespace HoldkassenAPI.Models.Account.ViewModels
 {
     // Models used as parameters to AccountController actions.
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HoldkassenAPI.Models.Account
+namespace HoldkassenAPI.Models.Account.ViewModels
 {
     // Models returned by AccountController actions.
 

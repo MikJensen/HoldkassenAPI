@@ -5,6 +5,8 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using Spring.Context.Support;
+using Spring.Web.Mvc;
 
 namespace HoldkassenAPI
 {
@@ -25,6 +27,8 @@ namespace HoldkassenAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.DependencyResolver = new SpringWebApiDependencyResolver(ContextRegistry.GetContext());
         }
     }
 }
