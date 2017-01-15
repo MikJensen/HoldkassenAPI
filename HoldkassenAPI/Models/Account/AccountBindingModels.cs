@@ -1,8 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace HoldkassenAPI.Models
+namespace HoldkassenAPI.Models.Account
 {
     // Models used as parameters to AccountController actions.
 

@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
+using HoldkassenAPI.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using HoldkassenAPI.Models;
 
 namespace HoldkassenAPI
 {
