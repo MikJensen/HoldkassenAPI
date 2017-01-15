@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using HoldkassenAPI.Data;
-using HoldkassenAPI.Interfaces.Team;
-using HoldkassenAPI.Models.Team;
+using System.Web;
 
 namespace HoldkassenAPI.Repositories.Write
 {
-    public class TeamWriteRepo : GenericWriteRepo<Team>, ITeamWriteRepo
+    public class TeamWriteRepo
     {
-        public TeamWriteRepo(ApplicationDbContext db) : base(db)
-        {
-        }
+
     }
 }

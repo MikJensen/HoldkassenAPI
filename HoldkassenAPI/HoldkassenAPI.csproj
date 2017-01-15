@@ -261,12 +261,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IGenericWriteRepo.cs" />
+    <Compile Include="Interfaces\Team\ITeamReadRepo.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\ApplicationUser.cs" />
     <Compile Include="Models\Account\ViewModels\AccountBindingModels.cs" />
     <Compile Include="Models\Account\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Team\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Repositories\Read\TeamReadRepo.cs" />
+    <Compile Include="Repositories\Write\TeamWriteRepo.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -331,6 +336,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
