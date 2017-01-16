@@ -28,6 +28,7 @@ namespace HoldkassenAPI
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            // Configuration of Spring injection.
             config.DependencyResolver = new SpringWebApiDependencyResolver(ContextRegistry.GetContext());
         }
     }

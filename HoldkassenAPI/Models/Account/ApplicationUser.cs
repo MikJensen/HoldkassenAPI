@@ -16,10 +16,11 @@ namespace HoldkassenAPI.Models.Account
         public string Lastname { get; set; }
 
         public int Phone { get; set; }
-
+        
+        // Should have PlayerContractId when user is in a team.
         public string LoggedInAs { get; set; } = "NoTeam";
 
-        public ICollection<Team.Team> Teams { get; set; }
+        public ICollection<PlayerContract.PlayerContract> Contracts { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {

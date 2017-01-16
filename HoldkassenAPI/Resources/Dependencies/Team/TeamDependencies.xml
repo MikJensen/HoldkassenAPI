@@ -2,7 +2,7 @@
 
 <objects xmlns="http://www.springframework.net">
 
-  <object id="CompanyDbContext" type="CompanyManagement.Data.CompanyDbContext, CompanyManagement.Data"
+  <!--<object id="CompanyDbContext" type="CompanyManagement.Data.CompanyDbContext, CompanyManagement.Data"
           singleton="false" />
 
   <object id="CompanyWriteRepository"
@@ -19,6 +19,6 @@
           type="CompanyManagement.Data.ApplicationService.ApplicationService, CompanyManagement.Data" singleton="false">
     <constructor-arg ref="CompanyReadRepository" />
     <constructor-arg ref="CompanyWriteRepository" />
-  </object>
+  </object>-->
 
 </objects>

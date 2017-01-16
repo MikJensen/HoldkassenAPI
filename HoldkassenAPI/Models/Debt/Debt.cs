@@ -10,27 +10,28 @@ namespace HoldkassenAPI.Models.Debt
 {
     public class Debt
     {
+        [Key]
         public string Id { get; private set; }
 
         [ForeignKey(nameof(Fine))]
         public string FineId { get; private set; }
         public Fine.Fine Fine { get; private set; }
 
-        [ForeignKey(nameof(PlayerContract))]
-        public string PlayerContractId { get; private set; }
-        public PlayerContract.PlayerContract PlayerContract { get; private set; }
+        [ForeignKey(nameof(Team))]
+        public string TeamId { get; private set; }
+        public Team.Team Team { get; private set; }
 
         [ForeignKey(nameof(Season))]
         public string SeasonId { get; private set; }
         public Season.Season Season { get; private set; }
 
-        public static Debt Create(string fineId, string playerContractId, string seasonId)
+        public static Debt Create(string fineId, string teamId, string seasonId)
         {
             var debt = new Debt()
             {
                 Id = Guid.NewGuid().ToString(),
                 FineId = fineId,
-                PlayerContractId = playerContractId,
+                TeamId = teamId,
                 SeasonId = seasonId
             };
             return debt;

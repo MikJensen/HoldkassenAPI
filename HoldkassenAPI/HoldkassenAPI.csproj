@@ -273,7 +273,6 @@
     <Compile Include="Models\Fine\Fine.cs" />
     <Compile Include="Models\Payment\Payment.cs" />
     <Compile Include="Models\PlayerContract\PlayerContract.cs" />
-    <Compile Include="Models\Role\Role.cs" />
     <Compile Include="Models\Season\Season.cs" />
     <Compile Include="Models\Team\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

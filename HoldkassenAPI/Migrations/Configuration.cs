@@ -9,7 +9,7 @@ namespace HoldkassenAPI.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(DAL.HoldkassenDbContext context)
