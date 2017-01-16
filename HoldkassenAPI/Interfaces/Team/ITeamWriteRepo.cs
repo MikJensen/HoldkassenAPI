@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HoldkassenAPI.Interfaces.Team
 {
-    public interface ITeamWriteRepo
+    public interface ITeamWriteRepo : IGenericWriteRepo<Models.Team.Team>
     {
+        
     }
 }

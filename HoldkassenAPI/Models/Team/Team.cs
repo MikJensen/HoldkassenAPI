@@ -27,6 +27,7 @@ namespace HoldkassenAPI.Models.Team
                 Name = name,
                 TeamCode = name.ToLower().Trim() + DateTime.Now.ToString("ddMMyyHHmmss")
             };
+            
             return t;
         }
 
@@ -37,5 +38,9 @@ namespace HoldkassenAPI.Models.Team
             TeamCode = Name + TeamCode.Substring(TeamCode.Length - 12, 12);
         }
 
+        public void AddPlayerContract(bool approved, string teamCode, string teamId, string userId, bool admin)
+        {
+            Contracts.Add(PlayerContract.PlayerContract.Create(approved, teamCode, teamId, userId, admin));
+        }
     }
 }

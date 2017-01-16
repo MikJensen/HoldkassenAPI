@@ -8,6 +8,7 @@ using HoldkassenAPI.Models.Debt;
 using HoldkassenAPI.Models.Fine;
 using HoldkassenAPI.Models.FineType;
 using HoldkassenAPI.Models.Payment;
+using HoldkassenAPI.Models.PlayerContract;
 using HoldkassenAPI.Models.Season;
 using HoldkassenAPI.Models.Team;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -27,6 +28,7 @@ namespace HoldkassenAPI.DAL
         public DbSet<Payment> Payments { get; set; }
         public DbSet<FineType> FineTypes { get; set; }
         public DbSet<Fine> Fines { get; set; }
+        public DbSet<PlayerContract> PlayerContracts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

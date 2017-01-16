@@ -2,23 +2,28 @@
 
 <objects xmlns="http://www.springframework.net">
 
-  <!--<object id="CompanyDbContext" type="CompanyManagement.Data.CompanyDbContext, CompanyManagement.Data"
+  <object id="HoldkassenDbContext" type="HoldkassenAPI.DAL.HoldkassenDbContext, HoldkassenAPI"
           singleton="false" />
 
-  <object id="CompanyWriteRepository"
-          type="CompanyManagement.Data.Repositories.CompanyWriteRepository, CompanyManagement.Data" singleton="false">
-    <constructor-arg ref="CompanyDbContext" />
+  <object id="TeamReadRepo"
+          type="HoldkassenAPI.Repositories.Read.TeamReadRepo, HoldkassenAPI" singleton="false">
+    <constructor-arg ref="HoldkassenDbContext" />
   </object>
 
-  <object id="CompanyReadRepository"
-          type="CompanyManagement.Data.Repositories.CompanyReadRepository, CompanyManagement.Data" singleton="false">
-    <constructor-arg ref="CompanyDbContext" />
+  <object id="TeamWriteRepo"
+          type="HoldkassenAPI.Repositories.Write.TeamWriteRepo, HoldkassenAPI" singleton="false">
+    <constructor-arg ref="HoldkassenDbContext" />
   </object>
 
-  <object id="ApplicationService"
-          type="CompanyManagement.Data.ApplicationService.ApplicationService, CompanyManagement.Data" singleton="false">
-    <constructor-arg ref="CompanyReadRepository" />
-    <constructor-arg ref="CompanyWriteRepository" />
-  </object>-->
+  <object id="TeamServices"
+          type="HoldkassenAPI.Services.Team.TeamServices, HoldkassenAPI" singleton="false">
+    <constructor-arg ref="TeamReadRepo" />
+    <constructor-arg ref="TeamWriteRepo" />
+  </object>
+
+  <object id="TeamController"
+          type="HoldkassenAPI.Controllers.Team.TeamController, HoldkassenAPI" singleton="false">
+    <constructor-arg ref="TeamServices" />
+  </object>
 
 </objects>
