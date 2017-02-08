@@ -16,7 +16,7 @@ using System.Web.Http;
 using System.Web.Http.OData;
 #endif
 
-namespace HoldkassenAPI.Areas.HelpPage
+namespace HoldkassenAPI.Areas.HelpPage.App_Start
 {
     /// <summary>
     /// Use this class to customize the Help Page.

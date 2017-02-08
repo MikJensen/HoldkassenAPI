@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
+using HoldkassenAPI.Filters;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using Spring.Context.Support;
+using Spring.Web.Mvc;
 
 namespace HoldkassenAPI
 {
@@ -16,15 +19,20 @@ namespace HoldkassenAPI
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.Filters.Add(new ExceptionFilter());
+            config.Filters.Add(new ValidateFilter());
 
             // Web API routes
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                "DefaultApi",
+                "api/{controller}/{id}",
+                new { id = RouteParameter.Optional }
             );
+
+            // Configuration of Spring injection.
+            config.DependencyResolver = new SpringWebApiDependencyResolver(ContextRegistry.GetContext());
         }
     }
 }
