@@ -104,5 +104,6 @@ C:\Users\Mikj8\documents\visual studio 2015\Projects\HoldkassenAPI\HoldkassenAPI
 C:\Users\Mikj8\documents\visual studio 2015\Projects\HoldkassenAPI\HoldkassenAPI\obj\Debug\HoldkassenAPI.dll
 C:\Users\Mikj8\documents\visual studio 2015\Projects\HoldkassenAPI\HoldkassenAPI\obj\Debug\HoldkassenAPI.pdb
 C:\Users\Mikj8\documents\visual studio 2015\Projects\HoldkassenAPI\HoldkassenAPI\obj\Debug\HoldkassenAPI.Resources.Exceptions.resources
-C:\Users\Mikj8\documents\visual studio 2015\Projects\HoldkassenAPI\HoldkassenAPI\obj\Debug\HoldkassenAPI.Resources.TeamResources.resources
 C:\Users\Mikj8\documents\visual studio 2015\Projects\HoldkassenAPI\HoldkassenAPI\obj\Debug\HoldkassenAPI.csproj.GenerateResource.Cache
+C:\Users\Mikj8\documents\visual studio 2015\Projects\HoldkassenAPI\HoldkassenAPI\obj\Debug\HoldkassenAPI.Modules.Team.TeamResources.resources
+C:\Users\Mikj8\documents\visual studio 2015\Projects\HoldkassenAPI\HoldkassenAPI\obj\Debug\HoldkassenAPI.Modules.Account.AccountResource.resources

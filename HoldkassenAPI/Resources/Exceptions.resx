@@ -120,4 +120,7 @@
   <data name="InternalServerError" xml:space="preserve">
     <value>Noget gik galt, prøv igen eller kontakt support.</value>
   </data>
+  <data name="MissingObject" xml:space="preserve">
+    <value>Object mangler: </value>
+  </data>
 </root>

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using HoldkassenAPI.DAL;
-using HoldkassenAPI.Models.Account.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;

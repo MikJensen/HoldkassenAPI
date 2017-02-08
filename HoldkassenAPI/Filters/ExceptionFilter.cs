@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http.Filters;
-using Spring.Threading;
+﻿using System.Web.Http.Filters;
 using System.Net.Http;
 using HoldkassenAPI.Exceptions;
+using HoldkassenAPI.Utilities;
 
 namespace HoldkassenAPI.Filters
 {
@@ -16,7 +12,7 @@ namespace HoldkassenAPI.Filters
             if (action.Exception?.GetBaseException() is BaseException)
             {
                 var e = (BaseException)action.Exception;
-                action.Response = action.Request.CreateResponse(e.StatusCode,e.Message);
+                action.Response = action.Request.CreateResponse(e.StatusCode,Utils.ReturnableErrorMessage(e.Message));
             }
         }
     }

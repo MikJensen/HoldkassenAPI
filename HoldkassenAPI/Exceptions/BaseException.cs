@@ -6,7 +6,7 @@ namespace HoldkassenAPI.Exceptions
     public class BaseException : Exception
     {
         public HttpStatusCode StatusCode;
-        protected BaseException(string message, HttpStatusCode statusCode) : base(message)
+        protected BaseException(string resource, HttpStatusCode statusCode) : base(resource)
         {
             StatusCode = statusCode;
         }

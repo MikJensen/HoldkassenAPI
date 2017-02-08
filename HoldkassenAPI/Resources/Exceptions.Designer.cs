@@ -68,5 +68,14 @@ namespace HoldkassenAPI.Resources {
                 return ResourceManager.GetString("InternalServerError", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Object mangler: .
+        /// </summary>
+        internal static string MissingObject {
+            get {
+                return ResourceManager.GetString("MissingObject", resourceCulture);
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using HoldkassenAPI.DAL;
-using HoldkassenAPI.Models.Account;
-using HoldkassenAPI.Models.Account.ViewModels;
+using HoldkassenAPI.Modules.Account;
+using HoldkassenAPI.Modules.Account.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
