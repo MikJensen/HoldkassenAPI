@@ -12,7 +12,7 @@ namespace HoldkassenAPI.Modules.Team.TeamViewModels
                 Id = user.Id,
                 Name = user.Name,
                 Lastname = user.Lastname,
-                Phone = user.Phone
+                Phone = user.PhoneNumber
             };
         }
 
@@ -24,6 +24,6 @@ namespace HoldkassenAPI.Modules.Team.TeamViewModels
         public string Id { get; set; }
         public string Name { get; set; }
         public string Lastname { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
     }
 }

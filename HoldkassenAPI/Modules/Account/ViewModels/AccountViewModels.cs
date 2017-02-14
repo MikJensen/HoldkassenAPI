@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using HoldkassenAPI.Modules.Account.Models;
 
 namespace HoldkassenAPI.Modules.Account.ViewModels
 {
@@ -28,9 +30,19 @@ namespace HoldkassenAPI.Modules.Account.ViewModels
     {
         public string Email { get; set; }
 
+        public string Name { get; set; }
+
+        public string Lastname { get; set; }
+
+        public string Phone { get; set; }
+
+        public string LoggedInAs { get; set; }
+
         public bool HasRegistered { get; set; }
 
         public string LoginProvider { get; set; }
+
+        public ICollection<PlayerContract.Models.PlayerContract> Contracts { get; set; }
     }
 
     public class UserLoginInfoViewModel

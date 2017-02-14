@@ -27,6 +27,7 @@ namespace HoldkassenAPI.Modules.Team.Controllers
 
         [ResponseStatusCodes(HttpStatusCode.OK)]
         [ResponseType(typeof(TeamInfo))]
+        [Route("GetTeamInfo")]
         [HttpGet]
         public async Task<IHttpActionResult> GetTeamInfo()
         {
@@ -48,6 +49,7 @@ namespace HoldkassenAPI.Modules.Team.Controllers
 
         [ResponseStatusCodes(HttpStatusCode.OK)]
         [ResponseType(typeof(TeamInfo))]
+        [Route("Update")]
         [HttpPut]
         public async Task<IHttpActionResult> Update(UpdateTeam updateTeam)
         {

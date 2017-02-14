@@ -36,6 +36,7 @@ namespace HoldkassenAPI.Modules.Team.Services
             if (await _write.Create(newTeam) == 0) throw new InternalServerErrorException();
 
             user.LoggedInAs = newTeam.Contracts.First().Id;
+            //user.UpdateClaim(newTeam.Contracts.First().Id);
             var userUpdated = await UserManager.UpdateAsync(user);
             //TODO: Maybe other exception
             if (!userUpdated.Succeeded)throw new InternalServerErrorException();
@@ -45,7 +46,7 @@ namespace HoldkassenAPI.Modules.Team.Services
 
         public async Task<Models.Team> GetTeamInfo(string teamId)
         {
-            if(teamId == "NoTeam") throw new BadRequestException(TeamResources.NotAssignedTeam);
+            if(teamId == "NoTeam" || teamId == null) throw new BadRequestException(TeamResources.NotAssignedTeam);
 
             var foundTeam = await _read.Find(teamId);
             if (foundTeam == null) throw new NotFoundException(TeamResources.TeamNotFound);

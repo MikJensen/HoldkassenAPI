@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.UI;
+using HoldkassenAPI.Controllers;
+using HoldkassenAPI.Exceptions;
 using HoldkassenAPI.Modules.Account.Models;
 using HoldkassenAPI.Modules.Account.ViewModels;
 using HoldkassenAPI.Providers;
@@ -21,7 +25,7 @@ namespace HoldkassenAPI.Modules.Account.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
-    public class AccountController : ApiController
+    public class AccountController : CoreController
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
@@ -30,23 +34,9 @@ namespace HoldkassenAPI.Modules.Account.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+        public AccountController(ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
-            UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
-        }
-
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
@@ -58,9 +48,17 @@ namespace HoldkassenAPI.Modules.Account.Controllers
         {
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
 
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if(user == null) throw new NotFoundException(AccountResource.UserNotFound);
+
             return new UserInfoViewModel
             {
                 Email = User.Identity.GetUserName(),
+                Name = user.Name,
+                Lastname = user.Lastname,
+                Phone = user.PhoneNumber,
+                LoggedInAs = user.LoggedInAs,
+                Contracts = Db.PlayerContracts.Where(c => c.UserId == user.Id).ToList(),
                 HasRegistered = externalLogin == null,
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
@@ -328,7 +326,7 @@ namespace HoldkassenAPI.Modules.Account.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, Name = model.Name, Lastname = model.Lastname, PhoneNumber = model.Phone};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -389,35 +387,6 @@ namespace HoldkassenAPI.Modules.Account.Controllers
         private IAuthenticationManager Authentication
         {
             get { return Request.GetOwinContext().Authentication; }
-        }
-
-        private IHttpActionResult GetErrorResult(IdentityResult result)
-        {
-            if (result == null)
-            {
-                return InternalServerError();
-            }
-
-            if (!result.Succeeded)
-            {
-                if (result.Errors != null)
-                {
-                    foreach (string error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error);
-                    }
-                }
-
-                if (ModelState.IsValid)
-                {
-                    // No ModelState errors are available to send, so just return an empty BadRequest.
-                    return BadRequest();
-                }
-
-                return BadRequest(ModelState);
-            }
-
-            return null;
         }
 
         private class ExternalLoginData

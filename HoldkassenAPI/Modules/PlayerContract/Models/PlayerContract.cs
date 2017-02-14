@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using HoldkassenAPI.Modules.Account.Models;
+using Newtonsoft.Json;
 
 namespace HoldkassenAPI.Modules.PlayerContract.Models
 {

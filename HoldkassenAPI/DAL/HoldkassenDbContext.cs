@@ -22,7 +22,7 @@ namespace HoldkassenAPI.DAL
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+       
         public DbSet<Team> Teams { get; set; }
         public DbSet<Debt> Debts { get; set; }
         public DbSet<Season> Seasons { get; set; }
@@ -38,7 +38,6 @@ namespace HoldkassenAPI.DAL
             modelBuilder.Entity<PlayerContract>().HasMany(d => d.Debts);
 
             modelBuilder.Entity<Team>().HasMany(p => p.Contracts);
-
         }
 
         public static HoldkassenDbContext Create()
