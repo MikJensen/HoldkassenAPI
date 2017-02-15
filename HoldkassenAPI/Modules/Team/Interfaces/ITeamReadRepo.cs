@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HoldkassenAPI.Modules.Team.Interfaces
 {
@@ -6,5 +7,7 @@ namespace HoldkassenAPI.Modules.Team.Interfaces
     {
         Task<Models.Team> FindByName(string name);
         Task<Models.Team> Find(string teamId);
+        Task<Models.Team> FindByCode(string teamCode);
+        Task<Contract.Models.Contract> FindTeamContract(string teamCode, string userId);
     }
 }

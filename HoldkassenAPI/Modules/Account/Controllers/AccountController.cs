@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.UI;
-using HoldkassenAPI.Controllers;
-using HoldkassenAPI.Exceptions;
 using HoldkassenAPI.Modules.Account.Models;
 using HoldkassenAPI.Modules.Account.ViewModels;
 using HoldkassenAPI.Providers;
 using HoldkassenAPI.Results;
+using HoldkassenAPI.Shared.Controllers;
+using HoldkassenAPI.Shared.Exceptions;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -58,7 +58,7 @@ namespace HoldkassenAPI.Modules.Account.Controllers
                 Lastname = user.Lastname,
                 Phone = user.PhoneNumber,
                 LoggedInAs = user.LoggedInAs,
-                Contracts = Db.PlayerContracts.Where(c => c.UserId == user.Id).ToList(),
+                Contracts = Db.Contracts.Where(c => c.UserId == user.Id).ToList(),
                 HasRegistered = externalLogin == null,
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };

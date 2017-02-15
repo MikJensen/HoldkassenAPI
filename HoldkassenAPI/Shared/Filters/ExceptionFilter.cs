@@ -1,9 +1,9 @@
-﻿using System.Web.Http.Filters;
-using System.Net.Http;
-using HoldkassenAPI.Exceptions;
-using HoldkassenAPI.Utilities;
+﻿using System.Net.Http;
+using System.Web.Http.Filters;
+using HoldkassenAPI.Shared.Exceptions;
+using HoldkassenAPI.Shared.Utilities;
 
-namespace HoldkassenAPI.Filters
+namespace HoldkassenAPI.Shared.Filters
 {
     public class ExceptionFilter : ActionFilterAttribute
     {

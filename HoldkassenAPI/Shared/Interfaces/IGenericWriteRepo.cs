@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using HoldkassenAPI.Shared.Utilities;
 
-namespace HoldkassenAPI.Interfaces
+namespace HoldkassenAPI.Shared.Interfaces
 {
     public interface IGenericWriteRepo<in TEntity> where TEntity : class
     {

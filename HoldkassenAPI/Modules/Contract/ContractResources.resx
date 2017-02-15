@@ -117,16 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="NameAlreadyInUse" xml:space="preserve">
-    <value>Holdnavnet er allerede i brug</value>
-  </data>
-  <data name="NotAssignedTeam" xml:space="preserve">
-    <value>Du er ikke tilmeldt nogle hold</value>
-  </data>
-  <data name="TeamAlreadyApplied" xml:space="preserve">
-    <value>Du har allerede ansøgt dette hold</value>
-  </data>
-  <data name="TeamNotFound" xml:space="preserve">
-    <value>Holdet findes ikke</value>
+  <data name="ContractNotFound" xml:space="preserve">
+    <value>Ansøgningen findes ikke</value>
   </data>
 </root>

@@ -42,7 +42,7 @@ namespace HoldkassenAPI.Modules.Account.ViewModels
 
         public string LoginProvider { get; set; }
 
-        public ICollection<PlayerContract.Models.PlayerContract> Contracts { get; set; }
+        public ICollection<Contract.Models.Contract> Contracts { get; set; }
     }
 
     public class UserLoginInfoViewModel

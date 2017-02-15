@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HoldkassenAPI.Modules.Team {
+namespace HoldkassenAPI.Modules.Contract {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace HoldkassenAPI.Modules.Team {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class TeamResources {
+    internal class ContractResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal TeamResources() {
+        internal ContractResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace HoldkassenAPI.Modules.Team {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HoldkassenAPI.Modules.Team.TeamResources", typeof(TeamResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HoldkassenAPI.Modules.Contract.ContractResources", typeof(ContractResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,11 @@ namespace HoldkassenAPI.Modules.Team {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Holdnavnet er allerede i brug.
+        ///   Looks up a localized string similar to Ansøgningen findes ikke.
         /// </summary>
-        internal static string NameAlreadyInUse {
+        internal static string ContractNotFound {
             get {
-                return ResourceManager.GetString("NameAlreadyInUse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Du er ikke tilmeldt nogle hold.
-        /// </summary>
-        internal static string NotAssignedTeam {
-            get {
-                return ResourceManager.GetString("NotAssignedTeam", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Du har allerede ansøgt dette hold.
-        /// </summary>
-        internal static string TeamAlreadyApplied {
-            get {
-                return ResourceManager.GetString("TeamAlreadyApplied", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Holdet findes ikke.
-        /// </summary>
-        internal static string TeamNotFound {
-            get {
-                return ResourceManager.GetString("TeamNotFound", resourceCulture);
+                return ResourceManager.GetString("ContractNotFound", resourceCulture);
             }
         }
     }

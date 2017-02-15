@@ -5,11 +5,11 @@ using System.Linq;
 using System.Web;
 using HoldkassenAPI.Modules.Account;
 using HoldkassenAPI.Modules.Account.Models;
+using HoldkassenAPI.Modules.Contract.Models;
 using HoldkassenAPI.Modules.Debt.Models;
 using HoldkassenAPI.Modules.Fine.Models;
 using HoldkassenAPI.Modules.FineType.Models;
 using HoldkassenAPI.Modules.Payment.Models;
-using HoldkassenAPI.Modules.PlayerContract.Models;
 using HoldkassenAPI.Modules.Season.Models;
 using HoldkassenAPI.Modules.Team.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -29,13 +29,13 @@ namespace HoldkassenAPI.DAL
         public DbSet<Payment> Payments { get; set; }
         public DbSet<FineType> FineTypes { get; set; }
         public DbSet<Fine> Fines { get; set; }
-        public DbSet<PlayerContract> PlayerContracts { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<PlayerContract>().HasMany(d => d.Debts);
+            modelBuilder.Entity<Contract>().HasMany(d => d.Debts);
 
             modelBuilder.Entity<Team>().HasMany(p => p.Contracts);
         }

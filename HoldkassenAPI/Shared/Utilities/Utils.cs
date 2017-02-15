@@ -1,6 +1,6 @@
 ﻿using System.Dynamic;
 
-namespace HoldkassenAPI.Utilities
+namespace HoldkassenAPI.Shared.Utilities
 {
     public class Utils
     {

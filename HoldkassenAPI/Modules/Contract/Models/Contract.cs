@@ -6,9 +6,9 @@ using System.Runtime.Serialization;
 using HoldkassenAPI.Modules.Account.Models;
 using Newtonsoft.Json;
 
-namespace HoldkassenAPI.Modules.PlayerContract.Models
+namespace HoldkassenAPI.Modules.Contract.Models
 {
-    public class PlayerContract
+    public class Contract
     {
         [Key]
         public string Id { get; private set; }
@@ -29,10 +29,10 @@ namespace HoldkassenAPI.Modules.PlayerContract.Models
         
         public ICollection<Debt.Models.Debt> Debts { get; set; }
 
-        public static PlayerContract Create(
+        public static Contract Create(
             bool approved, string teamCode, string teamId, string userId, bool admin)
         {
-            var contract = new PlayerContract()
+            var contract = new Contract()
             {
                 Id = Guid.NewGuid().ToString(),
                 Approved = approved,
@@ -42,6 +42,12 @@ namespace HoldkassenAPI.Modules.PlayerContract.Models
                 UserId = userId
             };
             return contract;
+        }
+
+        public void UpdateApproved(bool isApproved)
+        {
+            if (Approved.Equals(isApproved)) return;
+            Approved = isApproved;
         }
 
         public void AddDebt(string fineId, string teamId, string seasonId)

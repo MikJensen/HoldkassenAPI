@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using HoldkassenAPI.DAL;
-using HoldkassenAPI.Utilities;
+using HoldkassenAPI.Shared.Utilities;
 
-namespace HoldkassenAPI.Filters
+namespace HoldkassenAPI.Shared.Filters
 {
     public class ValidateFilter : ActionFilterAttribute
     {

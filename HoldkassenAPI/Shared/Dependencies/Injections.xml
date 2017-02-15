@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<objects xmlns="http://www.springframework.net">
+
+  <object id="HoldkassenDbContext" type="HoldkassenAPI.DAL.HoldkassenDbContext, HoldkassenAPI" singleton="true" />
+  <object singleton="false" type="HoldkassenAPI.Shared.Repositories.GenericWriteRepo&lt;object>, HoldkassenAPI" id="GenericWriteRepo">
+    <constructor-arg ref="HoldkassenDbContext"/>
+  </object>
+
+  <!--Teams-->
+  <object singleton="false" type="HoldkassenAPI.Modules.Team.Controllers.TeamController, HoldkassenAPI" id="TeamController">
+    <constructor-arg ref="TeamServices"/>
+  </object>
+  <object singleton="false" type="HoldkassenAPI.Modules.Team.Repositories.TeamReadRepo, HoldkassenAPI" id="TeamReadRepo">
+    <constructor-arg ref="HoldkassenDbContext"/>
+  </object>
+  <object singleton="false" type="HoldkassenAPI.Modules.Team.Services.TeamServices, HoldkassenAPI" id="TeamServices">
+    <constructor-arg ref="GenericWriteRepo"/>
+    <constructor-arg ref="TeamReadRepo"/>
+  </object>
+
+  <!--Contracts-->
+  <object singleton="false" type="HoldkassenAPI.Modules.Contract.Controllers.ContractController, HoldkassenAPI" id="ContractController">
+    <constructor-arg ref="ContractServices"/>
+  </object>
+  <object singleton="false" type="HoldkassenAPI.Modules.Contract.Repositories.ContractReadRepo, HoldkassenAPI" id="ContractReadRepo">
+    <constructor-arg ref="HoldkassenDbContext"/>
+  </object>
+  <object singleton="false" type="HoldkassenAPI.Modules.Contract.Services.ContractServices, HoldkassenAPI" id="ContractServices">
+    <constructor-arg ref="GenericWriteRepo"/>
+    <constructor-arg ref="ContractReadRepo"/>
+  </object>
+</objects>

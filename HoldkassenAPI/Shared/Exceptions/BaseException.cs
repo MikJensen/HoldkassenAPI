@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace HoldkassenAPI.Exceptions
+namespace HoldkassenAPI.Shared.Exceptions
 {
     public class BaseException : Exception
     {

@@ -28,24 +28,9 @@ namespace HoldkassenAPI.Modules.Account.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
             // Add custom user claims here
-            userIdentity.AddClaim(new Claim("LoggedInAs", LoggedInAs));
+            //userIdentity.AddClaim(new Claim("LoggedInAs", LoggedInAs));
 
             return userIdentity;
         }
-
-        //public void UpdateClaim(string newValue)
-        //{
-        //    LoggedInAs = newValue;
-        //    var identity = (ClaimsIdentity)HttpContext.Current.User.Identity;
-
-        //    var claim = identity.Claims.FirstOrDefault(r => r.Type == "LoggedInAs");
-        //    identity.RemoveClaim(claim);
-        //    identity.AddClaim(new Claim("LoggedInAs", newValue));
-
-        //    var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-        //    authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-        //    var newIdentity = (ClaimsIdentity)HttpContext.Current.User.Identity;
-        //    authenticationManager.SignIn(new AuthenticationProperties {IsPersistent = false}, newIdentity);
-        //}
     }
 }

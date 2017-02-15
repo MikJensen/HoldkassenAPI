@@ -9,6 +9,6 @@ namespace HoldkassenAPI.Modules.Team.TeamViewModels
     {
         public string Id { get; set; }
 
-        public string newName { get; set; }
+        public string NewName { get; set; }
     }
 }

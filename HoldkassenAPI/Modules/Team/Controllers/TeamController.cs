@@ -1,12 +1,13 @@
 ﻿using System.Net;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using HoldkassenAPI.Attributes;
-using HoldkassenAPI.Controllers;
-using HoldkassenAPI.Exceptions;
 using HoldkassenAPI.Modules.Team.Interfaces;
 using HoldkassenAPI.Modules.Team.TeamViewModels;
+using HoldkassenAPI.Shared.Controllers;
+using HoldkassenAPI.Shared.Exceptions;
 
 namespace HoldkassenAPI.Modules.Team.Controllers
 {
@@ -20,10 +21,7 @@ namespace HoldkassenAPI.Modules.Team.Controllers
             _services = services;
         }
 
-        public TeamController()
-        {
-            
-        }
+        public TeamController(){}
 
         [ResponseStatusCodes(HttpStatusCode.OK)]
         [ResponseType(typeof(TeamInfo))]
@@ -42,7 +40,6 @@ namespace HoldkassenAPI.Modules.Team.Controllers
         public async Task<IHttpActionResult> Create(CreateTeam createTeam)
         {
             var result = await _services.Create(createTeam.Name, UserId);
-            if (result == null) throw new InternalServerErrorException();
             return Content(HttpStatusCode.Created, new TeamInfo(result));
             
         }
@@ -53,10 +50,18 @@ namespace HoldkassenAPI.Modules.Team.Controllers
         [HttpPut]
         public async Task<IHttpActionResult> Update(UpdateTeam updateTeam)
         {
-            var result = await _services.Update(updateTeam.Id, updateTeam.newName);
-            if (result == null) throw new InternalServerErrorException();
+            var result = await _services.Update(updateTeam.Id, updateTeam.NewName);
             return Content(HttpStatusCode.OK, new TeamInfo(result));
 
+        }
+
+        [ResponseStatusCodes(HttpStatusCode.NoContent)]
+        [Route("Apply")]
+        [HttpPost]
+        public async Task<IHttpActionResult> Apply(GetTeam team)
+        {
+            await _services.Apply(team.TeamCode, UserId);
+            return Content(HttpStatusCode.NoContent, "");
         }
     }
 }
